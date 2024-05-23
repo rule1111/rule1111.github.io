@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script>
+    <script>
+      const swalo = Swal.mixin({ allowOutsideClick: false, showCancelButton: false, customClass: { popup: "border-radius" } });
+    </script>
+    <link rel="stylesheet" href="https://files.dariku.my.id/dk202/style.css" />
+    <title>Spesial Buat Kamu</title>
+  </head>
+  <body>
+    <div class="preload"><p>Loading dulu . . .</p></div>
+    <div class="open">
+      <div>
+        <div class="lope" onclick="ilang()"><i class="love material-icons-sharp"> favorite </i></div>
+        <h3>Pencet Love nya</h3>
+      </div>
+    </div>
+    <div class="bg">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="bg-love"></div>
+    <div class="content adascroll contentslide1">
+      <div class="slidekuy1">
+        <p id="typetxt" class="typetxt1"></p>
+        <button id="lanjut" class="lanjut1" onclick="tampilContent2()">Klik untuk Lanjut ya!</button>
+      </div>
+    </div>
+    <div class="content2 contentslide2">
+      <div class="txtPilihHadiah">
+        <p style="max-width: 70vw" class="typetxt2"></p>
+      </div>
+      <div class="hadiahku">
+        <div class="row">
+          <img src="https://files.dariku.my.id/dk202/kado.png" class="kado" />
+          <img src="https://files.dariku.my.id/dk202/kado.png" class="kado" />
+        </div>
+        <div class="row">
+          <img src="https://files.dariku.my.id/dk202/kado.png" class="kado" />
+          <img src="https://files.dariku.my.id/dk202/kado.png" class="kado" />
+        </div>
+      </div>
+    </div>
+
+    <div class="content adascroll contentslide4">
+      <div class="slidekuy2">
+        <p id="typetxt" class="typetxt4"></p>
+        <button id="lanjut" class="lanjut4" onclick="tampilContent5()">Klik untuk Lanjut ya!</button>
+      </div>
+    </div>
+
+    <div class="content contentadascroll contentslide5">
+      <div class="slidekuy">
+        <p id="typetxt" class="typetxt5"></p>
+      </div>
+      <button id="lanjut" class="lanjut5" onclick="tampilContent6()">Klik untuk Lanjut ya!</button>
+    </div>
+
+    <div class="content adascroll contentslide6">
+      <div class="slidekuy3">
+        <p id="typetxt" class="typetxt6"></p>
+        <button id="lanjut" class="lanjut6" onclick="tampilContent3()">Klik untuk Lanjut ya!</button>
+      </div>
+    </div>
+
+    <div class="content2 contentslide3">
+      <div class="txtPilihHadiah">
+        <p class="typetxt3"></p>
+      </div>
+      <div class="formwish">
+        <textarea name="" id="valuewish" rows="7"></textarea>
+      </div>
+      <button class="kirimwish" onclick="sendwish()">Kirim</button>
+    </div>
+
+    <div class="wm">
+      <p></p>
+    </div>
+
+    <script>
+      // ========================
+
+      // Musik
+      musik = "https://ini.dariku.my.id/contohultah/musik.mp3";
+
+      // Daftar Foto
+      background1 = "file foto";
+      background2 = "file foto";
+      background3 = "file foto";
+      background4 = "file foto";
+      background5 = "file foto";
+      background6 = "file foto";
+
+      // Ucapan Slide 1
+      ucapan1 = "Contoh ucapan";
+
+      // Ucapan Slide 2 / Pilihan Kado
+      ucapan2 = "Ada kado buat kamu, pilih satu ya";
+      kado1 = "Selamat kamu dapet kado 1";
+      kado2 = "Selamat kamu dapet kado 2";
+      kado3 = "Selamat kamu dapet kado 3";
+      kado4 = "Selamat kamu dapet kado 4";
+
+      // Ucapan Slide 3
+      ucapan3 = "Contoh ucapan";
+
+      // Ucapan Slide 4
+      ucapan4 = "Contoh ucapan";
+
+      // Ucapan Slide 5
+      ucapan5 = "Contoh ucapan";
+
+      // Ucapan Slide 6
+      ucapan6 = "Isi wish kamu disini ya";
+
+      // Watermark
+      tag = "";
+
+      // Pop up setelah kado
+      async function setelahKado(inijanganhapus) {
+        await swalo.fire({ title: "Lanjut gak nihh", confirmButtonText: "Lanjuttt" });
+
+        inijanganhapus();
+      }
+
+      // Pop up setelah wish
+      async function sendwish() {
+        pesanku = valuewish.value;
+        if (pesanku) {
+          await swalo.fire({ confirmButtonText: "OK", title: "Kirim ke wa aku ya" });
+          location.assign(`https://wa.me/?text=${pesanku}`);
+        } else {
+          await swalo.fire({ confirmButtonText: "OK", title: "Jangan dikosongin dong" });
+        }
+      }
+    </script>
+    <script src="https://files.dariku.my.id/dk202/scripts.js"></script>
+  </body>
+</html>
